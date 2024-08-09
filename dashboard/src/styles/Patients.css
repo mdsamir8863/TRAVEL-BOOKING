@@ -1,0 +1,97 @@
+/* patients.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.add-button {
+  color: white;
+  background-color: blue;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.patient-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.patient-card {
+  flex: 0 0 30%;
+  margin: 20px;
+  background-color: white;
+  padding: 1rem;
+}
+
+.page-title {
+  text-align: center;
+  color: white;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+thead{
+  padding: 1rem;
+}
+tbody td {
+  padding: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(196, 242, 255, 0.446);
+}
+
+th {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}

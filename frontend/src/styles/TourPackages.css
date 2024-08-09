@@ -1,0 +1,91 @@
+.tour-packages-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.tour-packages-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.package-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.package-card {
+  max-width: 300px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgb(131, 131, 131);
+  transition: .5s ease;
+}
+
+.package-card:hover {
+  box-shadow: 1px 2px 12px 1px rgba(19, 0, 164, 0.1);
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.package-card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.package-card h2 {
+  margin-top: 10px;
+}
+
+.package-card p {
+  margin-bottom: 10px;
+}
+
+.package-card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.package-card button:hover {
+  background-color: #0056b3 !important;
+}
+
+.package-details {
+  text-align: left;
+  padding: 2rem;
+}
+
+.package-details h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.package-details p {
+  margin-bottom: 1rem;
+}
+
+.package-details ul {
+  margin-bottom: 1rem;
+}
+
+.package-details button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.package-details button:hover {
+  background-color: #0056b3 !important;
+}

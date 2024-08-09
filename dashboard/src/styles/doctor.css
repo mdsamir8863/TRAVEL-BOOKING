@@ -1,0 +1,25 @@
+.docImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.docName {
+    background-color: rgba(245, 222, 179, 0.469);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+#docCard{
+    flex-direction: row;
+}
+
+@media (max-width:768px) {
+    .card {
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+}

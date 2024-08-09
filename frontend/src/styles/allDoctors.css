@@ -1,0 +1,104 @@
+/* Insert your CSS code here */
+a {
+    text-decoration: none;
+}
+
+.doctor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 2rem auto;
+}
+
+.doctor-card {
+    max-width: 300px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(131, 131, 131);
+    transition: .5s ease;
+    margin: auto;
+}
+
+.doctor-card:hover {
+
+    box-shadow: 1px 2px 12px 1px rgba(19, 0, 164, 0.1);
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.doctor-card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.doctor-card h3 {
+    margin-top: 10px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+    gap: 8px;
+}
+
+.actions button,
+.actions a {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actions button:hover,
+.actions a:hover {
+    background-color: #0056b3 !important;
+}
+
+.docImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.docName {
+    background-color: rgba(245, 222, 179, 0.469);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+#docCard{
+    flex-direction: row;
+}
+
+.banner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 1rem;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:768px) {
+    .card {
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+
+
+
+
