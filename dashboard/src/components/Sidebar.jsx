@@ -5,14 +5,11 @@ import { AiFillMessage } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaUserDoctor } from "react-icons/fa6";
 import { MdAddModerator } from "react-icons/md";
-import { IoPersonAddSharp, IoPersonAddOutline } from "react-icons/io5"; // Use IoPersonAddOutline for nurse icon
+import { IoPersonAddSharp,  } from "react-icons/io5"; // Use IoPersonAddOutline for nurse icon
 import { BsPeopleFill } from "react-icons/bs"; // New icon for patients
-import { HiUserGroup } from "react-icons/hi"; // New icon for receptionists
-import axios from "axios";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import { useNavigate, Link } from "react-router-dom";
-import logo from "../assets/logo3.png";
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
@@ -88,10 +85,7 @@ const Sidebar = () => {
     setShow(false);
   };
 
-  // const gotoReceptionistsPage = () => {
-  //   navigateTo("/receptionists");
-  //   setShow(false);
-  // };
+ 
 
   return (
     <>
@@ -118,16 +112,13 @@ const Sidebar = () => {
           </div>
           <div onClick={gotoAddNewDoctor}>
             <IoPersonAddSharp />
-            <span>Add New hotel</span>
+            <span>Add New Hotel</span>
           </div>
           <div onClick={gotoPatientsPage}>
             <BsPeopleFill />
             <span>Travelers</span>
           </div>
-          {/* <div onClick={gotoReceptionistsPage}>
-            <HiUserGroup />
-            <span>Receptionists</span>
-          </div> */}
+         
           <div onClick={gotoMessagesPage}>
             <AiFillMessage />
             <span>Bookings</span>

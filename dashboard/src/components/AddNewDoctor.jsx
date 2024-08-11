@@ -85,7 +85,7 @@ const ratingArr = [
   return (
     <section className="page">
       <section className="container add-doctor-form">
-        <h1 className="form-title">REGISTER A NEW Hotel</h1>
+        <h1 className="form-title">ADD NEW HOTEL</h1>
         <form onSubmit={handleAddNewDoctor}>
           <div className="first-wrapper">
             <div className="avatar">

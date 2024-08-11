@@ -1,4 +1,4 @@
-# MERN Stack Hospital Management System
+# MERN Stack Travel Booking System
 
 
 
@@ -7,17 +7,17 @@ This is a Hospital Management System built using the MERN (MongoDB, Express.js, 
 ### Dashboard Features:
 - Dashboard
 - Add Admin
-- Add Doctor
+- Add Hotel
 - Add Receptionists
-- See all doctors
-- See all appointments
-- Manage appointments
+- See all Hotels
+- See All Bookings
 
 ### Backend Features:
 - Manages all frontend features
 
 ### Frontend Features:
-- Book appointment
+- Book Room
+- Book Tour
 - Send Message to admin
 - Login / Register
 
@@ -32,13 +32,9 @@ This is a Hospital Management System built using the MERN (MongoDB, Express.js, 
 
 1. **Clone the repository:**
 
-
-
-
 2. **Install dependencies:**
 
-cd React_Hospital_Management_System
-npm install
+cd MERN Stack Travel Booking System
 
 
 3. **Set up environment variables:**
