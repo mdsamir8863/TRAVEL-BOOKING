@@ -65,21 +65,20 @@ textarea {
 #formBook {
   width: 100%;
   padding: 12px;
-  background-color: darkblue;
+  background-color: #04b204 ;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  border: 2px solid darkblue;
+  /* border: 2px solid ; */
   transition: background-color 0.3s ease;
   font-weight: bold;
 
 }
 
 #formBook:hover {
-  background-color: transparent;
-  color: darkblue;
+  background-color: darkblue;
 }
 
 /* Responsive design */

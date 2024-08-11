@@ -76,6 +76,7 @@ a:hover{
   background-color: darkblue !important;
   color: white !important;
 }
+
 @media (max-width: 1186px) {
   h1 {
     font-size: 32px;
@@ -87,6 +88,7 @@ a:hover{
     font-weight: 900;
   }
 }
+
 
 .container {
   padding: 0 100px;
@@ -230,7 +232,7 @@ a:hover{
 .form-component form select,
 .form-component form textarea {
   flex: 1;
-  font-size: 24px;
+  font-size: 18px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
   border: 1px solid gray;
@@ -245,7 +247,13 @@ a:hover{
   border-radius: 8px;
   font-size: 24px;
   margin-bottom: 30px;
-  background: linear-gradient(140deg, #9083d5, #271776ca);
+  background-color: #007bff;
+  transition: .4s;
+  /* background: linear-gradient(140deg, #9083d5, #271776ca); */
+}
+.form-component button:hover{
+  background-color: darkblue;
+  cursor: pointer;
 }
 
 .form-component .wrapper {

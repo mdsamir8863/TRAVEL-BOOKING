@@ -127,7 +127,7 @@ export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
 
 export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
   if (!req.files || Object.keys(req.files).length === 0) {
-    return next(new ErrorHandler("Doctor Avatar Required!", 400));
+    return next(new ErrorHandler("Image Required!", 400));
   }
   const { docAvatar } = req.files;
   const allowedFormats = ["image/png", "image/jpeg", "image/webp"];
@@ -143,26 +143,28 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
     dob,
     gender,
     password,
-    doctorDepartment,
+    rating,
+    content,
+    price,
+  
   } = req.body;
-  if (
-    !firstName ||
-    !lastName ||
-    !email ||
-    !phone ||
-    !nic ||
-    !dob ||
-    !gender ||
-    !password ||
-    !doctorDepartment ||
-    !docAvatar
-  ) {
-    return next(new ErrorHandler("Please Fill All Fields!", 400));
-  }
+  // if (
+  //   !firstName ||
+  //   !lastName ||
+  //   !email ||
+  //   !phone ||
+  //   !nic ||
+  //   !dob ||
+  //   !rating ||
+  //   !price ||
+  //   !docAvatar
+  // ) {
+  //   return next(new ErrorHandler("Please Fill All Fields!", 400));
+  // }
   const isRegistered = await User.findOne({ email });
   if (isRegistered) {
     return next(
-      new ErrorHandler("Doctor With This Email Already Exists!", 400)
+      new ErrorHandler("Hotel With This Email Already Exists!", 400)
     );
   }
   const cloudinaryResponse = await cloudinary.uploader.upload(
@@ -174,7 +176,7 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
       cloudinaryResponse.error || "Unknown Cloudinary error"
     );
     return next(
-      new ErrorHandler("Failed To Upload Doctor Avatar To Cloudinary", 500)
+      new ErrorHandler("Failed To Upload Avatar To Cloudinary", 500)
     );
   }
   const doctor = await User.create({
@@ -187,7 +189,9 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
     gender,
     password,
     role: "Doctor",
-    doctorDepartment,
+    rating,
+    content,
+    price,
     docAvatar: {
       public_id: cloudinaryResponse.public_id,
       url: cloudinaryResponse.secure_url,
@@ -195,7 +199,7 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
   });
   res.status(200).json({
     success: true,
-    message: "New Doctor Registered",
+    message: "New Hotel Registered",
     doctor,
   });
 });
@@ -205,6 +209,14 @@ export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
   res.status(200).json({
     success: true,
     doctors,
+  });
+});
+export const deleteDoc = catchAsyncErrors(async (req, res, next) => {
+  console.log(req.params.id);
+  
+   await User.findByIdAndDelete(req.params.id);
+  res.status(200).json({
+    success: true,
   });
 });
 
@@ -240,6 +252,6 @@ export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
     })
     .json({
       success: true,
-      message: "Patient Logged Out Successfully.",
+      message: "Traveler Logged Out Successfully.",
     });
 });

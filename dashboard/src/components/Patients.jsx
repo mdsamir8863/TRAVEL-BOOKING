@@ -23,14 +23,14 @@ const Patients = () => {
   };
 
   return (
-    <div className="container">
-      <h1 className="page-title">Patients</h1>
+    <div className="container" style={{backgroundColor:"#ffffff40",height: "90vh",borderRadius:"10px",marginTop:"2rem"}}>
+      <h1 className="page-title">Our Travelers</h1>
       <table>
         <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>NIC</th>
+            <th>Aadhar Number</th>
             <th>Phone</th>
             <th>Gender</th>
           </tr>

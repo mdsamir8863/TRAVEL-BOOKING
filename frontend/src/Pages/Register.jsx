@@ -55,11 +55,9 @@ const Register = () => {
   return (
     <>
       <div className="container form-component register-form">
-        <h2>Register as a Patient</h2>
-        <p>Please register to access our services</p>
+        <h2>Register as a Traveler</h2>
         <p>
-          We are committed to providing the best healthcare services to our patients. Register now to experience our personalized care.
-        </p>
+        Create an account to book tours, hotels, and flights seamlessly. Enjoy personalized recommendations and exclusive deals.        </p>
         <form onSubmit={handleRegistration}>
           <div>
             <input
@@ -92,7 +90,7 @@ const Register = () => {
           <div>
             <input
               type="number"
-              placeholder="NIC"
+              placeholder="Aadhar Number"
               value={nic}
               onChange={(e) => setNic(e.target.value)}
             />

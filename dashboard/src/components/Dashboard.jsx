@@ -83,22 +83,23 @@ const Dashboard = ({ user: admin }) => {
                 <p>Hello ,</p>
                 <h5>{admin && `${admin.firstName} ${admin.lastName}`} </h5>
               </div>
-              <p>
-                Welcome to our hospital management system. Manage your appointments and patient care with ease.
-              </p>
+              <p style={{color:"darkblue"}}>
+  Welcome to our Tour Management Dashboard. Effortlessly manage your tours, accommodations, and client experiences.
+</p>
+
             </div>
           </div>
-          <Link to={'/appointments'} className="secondBox" style={{cursor:"pointer",textAlign:"center"}}>
-            <p>See All Appointments</p>
+          <Link to={'/bookings'} className="secondBox" style={{cursor:"pointer",textAlign:"center"}}>
+            <p>See All Bookings</p>
             
           </Link>
-          <Link to={'/doctors'} className="thirdBox">
-            <p style={{cursor:"pointer",textAlign:"center"}}>Registered Doctors</p>
+          <Link to={'/hotels'} className="thirdBox">
+            <p style={{cursor:"pointer",textAlign:"center"}}>Registered Hotels</p>
             
           </Link>
         </div>
         <div className="banner">
-          <h5>Recent patients</h5>
+          <h5>Recent Travelers</h5>
           <table>
             <thead>
               <tr>
@@ -122,9 +123,9 @@ const Dashboard = ({ user: admin }) => {
                   ))
                 : null}
 
-                <Link to={'/patients'} style={{textDecoration:"none"}}>
+                <Link to={'/travelers'} style={{textDecoration:"none"}}>
 
-                <button style={{marginTop:"1rem"}}>See All Patient</button>
+                <button style={{marginTop:"1rem"}}>See All Travelers</button>
                 </Link>
             </tbody>
           </table>

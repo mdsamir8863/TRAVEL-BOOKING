@@ -1,0 +1,125 @@
+/* popup.css */
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    overflow: scroll !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Disable pointer events when not visible */
+  }
+  
+  /* Popup Container */
+  .popup {
+    position: fixed;
+    overflow: scroll !important;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transform: translate(-50%, -60%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Added border-bottom for new content */
+    border-bottom: 2px solid #ddd;
+  }
+  
+  /* Show the popup */
+  .popup.show {
+    opacity: 1;
+    transform: translate(-50%, 10%);
+    overflow: scroll !important;
+    height: 85vh;
+  }
+  
+  /* Show the overlay */
+  .popup-overlay.show {
+    opacity: 1;
+    pointer-events: auto; /* Enable pointer events when visible */
+  }
+  
+  /* Close Button */
+  .closeBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: red !important;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .closeBtn svg {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+  }
+  
+  /* Popup Header */
+  .popup h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Popup Content */
+  .popup p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  /* Popup Image */
+  .popup img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+  }
+  
+  /* Popup Button */
+  .popup button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  /* Buy Now Button */
+  .buyNow {
+    width: 100%;
+    background-color: #04b204 !important;
+  }
+  .buyNow:hover {
+    background-color: darkblue !important;
+  }
+  
+  /* Button Hover Effects */
+  .popup button:hover {
+    background-color: #333;
+  }
+  
+  .popup button:focus {
+    outline: none;
+  }
+  

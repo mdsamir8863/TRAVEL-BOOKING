@@ -3,6 +3,7 @@ import {
   addNewAdmin,
   addNewDoctor,
   allPatients,
+  deleteDoc,
   getAllDoctors,
   getUserDetails,
   login,
@@ -22,6 +23,8 @@ router.post("/login", login);
 router.post("/admin/addnew", addNewAdmin);
 router.post("/doctor/addnew", addNewDoctor);
 router.get("/doctors", getAllDoctors);
+router.get("/doctor/:id", getAllDoctors);
+router.delete("/doctor/:id", deleteDoc);
 router.get("/allpatient", allPatients);
 router.get("/patient/me", isPatientAuthenticated, getUserDetails);
 router.get("/admin/me", isAdminAuthenticated, getUserDetails);

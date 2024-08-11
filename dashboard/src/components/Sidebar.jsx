@@ -64,17 +64,17 @@ const Sidebar = () => {
   };
 
   const gotoDoctorsPage = () => {
-    navigateTo("/doctors");
+    navigateTo("/hotels");
     setShow(false);
   };
 
   const gotoMessagesPage = () => {
-    navigateTo("/appointments");
+    navigateTo("/bookings");
     setShow(false);
   };
 
   const gotoAddNewDoctor = () => {
-    navigateTo("/doctor/addnew");
+    navigateTo("/hotel/addnew");
     setShow(false);
   };
 
@@ -84,7 +84,7 @@ const Sidebar = () => {
   };
 
   const gotoPatientsPage = () => {
-    navigateTo("/patients");
+    navigateTo("/travelers");
     setShow(false);
   };
 
@@ -98,8 +98,8 @@ const Sidebar = () => {
       <nav ref={sidebarRef} className={show ? "show sidebar" : "sidebar"}>
         <div className="logo-container">
         <div className="logo" style={{fontWeight: "bold", fontSize:"1.5rem",  display:'flex', alignItems:"center", justifyContent:"center", width:"100%"}}>
-          <Link to="/" className="logo-img" style={{textDecoration:"none"}}>
-            Health<span style={{ color: "#ffce00" }}>Hub</span>
+          <Link to="/" className="logo-img" style={{textDecoration:"none",color:"white"}}>
+            Travel<span style={{ color: "#" }}>Mate</span>
           </Link>
         </div>
         </div>
@@ -118,7 +118,7 @@ const Sidebar = () => {
           </div>
           <div onClick={gotoAddNewDoctor}>
             <IoPersonAddSharp />
-            <span>Add New Rooms</span>
+            <span>Add New hotel</span>
           </div>
           <div onClick={gotoPatientsPage}>
             <BsPeopleFill />

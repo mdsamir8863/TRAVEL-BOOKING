@@ -7,8 +7,10 @@
 
 .docName {
     background-color: rgba(245, 222, 179, 0.469);
-    padding: 1rem;
+    padding: .8rem;
     border-radius: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 #docCard{

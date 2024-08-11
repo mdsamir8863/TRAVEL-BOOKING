@@ -9,8 +9,8 @@ import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import AddNewDoctor from "./components/AddNewDoctor";
 import Messages from "./components/Messages";
-import Doctors from "./components/Doctors";
-import Patients from "./components/Patients";
+import Hotels from "./components/Doctors";
+import Travelers from "./components/Patients";
 // import Receptionists from "./components/Receptionists";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,11 +27,11 @@ const App = () => {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/dashboard" element={<Dashboard user={user} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/doctor/addnew" element={<AddNewDoctor />} />
+        <Route path="/hotel/addnew" element={<AddNewDoctor />} />
         <Route path="/admin/addnew" element={<AddNewAdmin />} />
-        <Route path="/appointments" element={<Messages />} />
-        <Route path="/doctors" element={<Doctors />} />
-        <Route path="/patients" element={<Patients />} />
+        <Route path="/bookings" element={<Messages />} />
+        <Route path="/hotels" element={<Hotels />} />
+        <Route path="/Travelers" element={<Travelers />} />
         {/* <Route path="/receptionists" element={<Receptionists />} /> */}
       </Routes>
       {user?._id && window.location.pathname !== "/login" ? <Sidebar /> : null}

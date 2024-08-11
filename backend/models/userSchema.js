@@ -6,12 +6,12 @@ import jwt from "jsonwebtoken";
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: [true, "First Name Is Required!"],
+
     minLength: [3, "First Name Must Contain At Least 3 Characters!"],
   },
   lastName: {
     type: String,
-    required: [true, "Last Name Is Required!"],
+    // required: [true, "Last Name Is Required!"],
     minLength: [3, "Last Name Must Contain At Least 3 Characters!"],
   },
   email: {
@@ -27,22 +27,22 @@ const userSchema = new mongoose.Schema({
   },
   nic: {
     type: String,
-    required: [true, "NIC Is Required!"],
-    minLength: [12, "NIC Must Contain Only 12 Digits!"],
-    maxLength: [12, "NIC Must Contain Only 12 Digits!"],
+    required: [true, "Aadhar Number Is Required!"],
+    minLength: [12, "Aadhar Number Must Contain Only 12 Digits!"],
+    maxLength: [12, "Aadhar Number Must Contain Only 12 Digits!"],
   },
   dob: {
     type: Date,
-    required: [true, "DOB Is Required!"],
+    // required: [true, "DOB Is Required!"],
   },
   gender: {
     type: String,
-    required: [true, "Gender Is Required!"],
+    // required: [true, "Gender Is Required!"],
     enum: ["Male", "Female"],
   },
   password: {
     type: String,
-    required: [true, "Password Is Required!"],
+    // required: [true, "Password Is Required!"],
     minLength: [8, "Password Must Contain At Least 8 Characters!"],
     select: false,
   },
@@ -51,21 +51,32 @@ const userSchema = new mongoose.Schema({
     required: [true, "User Role Required!"],
     enum: ["Patient", "Doctor", "Admin"],
   },
-  doctorDepartment:{
+  doctorDepartment: {
     type: String,
   },
   docAvatar: {
     public_id: String,
     url: String,
   },
+  rating: {
+    type: String,
+    
+  },
+  price: {
+    type: Number,
+    
+  },
+  content: {
+    type: String,
+  },
 });
 
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    next();
-  }
-  this.password = await bcrypt.hash(this.password, 10);
-});
+// userSchema.pre("save", async function (next) {
+//   if (!this.isModified("password")) {
+//     next();
+//   }
+//   this.password = await bcrypt.hash(this.password, 10);
+// });
 
 userSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);

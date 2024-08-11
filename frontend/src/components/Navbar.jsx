@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Context } from "../main";
-// import logo from "../assets/logo3.png";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
@@ -14,18 +13,18 @@ const Navbar = () => {
     setActiveTab(location.pathname);
   }, [location]);
 
-  function clearCookies() {
-    document.cookie.split(";").forEach(function (c) {
-      document.cookie = c
-        .replace(/^ +/, "")
-        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-    });
-  }
+  useEffect(() => {
+    const storedAuth = localStorage.getItem("isAuthenticated");
+    if (storedAuth !== null) {
+      setIsAuthenticated(JSON.parse(storedAuth));
+    }
+  }, [setIsAuthenticated]);
 
-  const handleLogout = async () => {
-    clearCookies();
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
     setIsAuthenticated(false);
   };
+
   const handleMenuBar = () => {
     setMenuBar(!menuBar);
   };
@@ -62,72 +61,70 @@ const Navbar = () => {
             >
               Services
             </Link>
-           
 
-           <select 
-  style={{ 
-    display: 'inline-block', 
-    margin: '0 10px', 
-    padding: '0px 10px', 
-    border: 'none', 
-    borderRadius: '20px', 
-    backgroundColor: '#f0f0f0', 
-    color: '#333', 
-    fontSize: '16px', 
-    fontWeight: '500' 
-  }} 
-  onChange={(e) => window.location.href = e.target.value}
->
-  <option 
-    value="/booking" 
-    style={{ 
-      padding: '10px', 
-      backgroundColor: '#ffffff', 
-      color: '#333', 
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  >
-    Bookings
-  </option>
-  <option 
-    value="/tour" 
-    style={{ 
-      padding: '10px', 
-      backgroundColor: '#ffffff', 
-      color: '#333', 
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  >
-    Tour
-  </option>
-  <option 
-    value="/rooms" 
-    style={{ 
-      padding: '10px', 
-      backgroundColor: '#ffffff', 
-      color: '#333', 
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  >
-    Rooms
-  </option>
-  <option 
-    value="/flights" 
-    style={{ 
-      padding: '10px', 
-      backgroundColor: '#ffffff', 
-      color: '#333', 
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  >
-    Flights
-  </option>
-</select>
-
+            <select
+              style={{
+                display: "inline-block",
+                margin: "0 10px",
+                padding: "0px 10px",
+                border: "none",
+                borderRadius: "20px",
+                backgroundColor: "#f0f0f0",
+                color: "#333",
+                fontSize: "16px",
+                fontWeight: "500",
+              }}
+              onChange={(e) => (window.location.href = e.target.value)}
+            >
+              <option
+                value="/booking"
+                style={{
+                  padding: "10px",
+                  backgroundColor: "#ffffff",
+                  color: "#333",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                }}
+              >
+                Bookings
+              </option>
+              <option
+                value="/tour"
+                style={{
+                  padding: "10px",
+                  backgroundColor: "#ffffff",
+                  color: "#333",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                }}
+              >
+                Tour
+              </option>
+              <option
+                value="/rooms"
+                style={{
+                  padding: "10px",
+                  backgroundColor: "#ffffff",
+                  color: "#333",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                }}
+              >
+                Rooms
+              </option>
+              <option
+                value="/flights"
+                style={{
+                  padding: "10px",
+                  backgroundColor: "#ffffff",
+                  color: "#333",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                }}
+              >
+                Flights
+              </option>
+            </select>
           </div>
           <div className="buttons">
             {isAuthenticated ? (
@@ -196,70 +193,69 @@ const Navbar = () => {
                 >
                   About
                 </Link>
-               <select 
-  style={{ 
-    display: 'inline-block', 
-    margin: '0 10px', 
-    padding: '0px 10px', 
-    border: 'none', 
-    borderRadius: '20px', 
-    backgroundColor: '#f0f0f0', 
-    color: '#333', 
-    fontSize: '16px', 
-    fontWeight: '500' 
-  }} 
-  onChange={(e) => window.location.href = e.target.value}
->
-  <option 
-    value="/booking" 
-    style={{ 
-      padding: '10px', 
-      backgroundColor: '#ffffff', 
-      color: '#333', 
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  >
-    Bookings
-  </option>
-  <option 
-    value="/tour" 
-    style={{ 
-      padding: '10px', 
-      backgroundColor: '#ffffff', 
-      color: '#333', 
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  >
-    Tour
-  </option>
-  <option 
-    value="/rooms" 
-    style={{ 
-      padding: '10px', 
-      backgroundColor: '#ffffff', 
-      color: '#333', 
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  >
-    Rooms
-  </option>
-  <option 
-    value="/flights" 
-    style={{ 
-      padding: '10px', 
-      backgroundColor: '#ffffff', 
-      color: '#333', 
-      fontSize: '16px',
-      fontWeight: '500'
-    }}
-  >
-    Flights
-  </option>
-</select>
-
+                <select
+                  style={{
+                    display: "inline-block",
+                    margin: "0 10px",
+                    padding: "0px 10px",
+                    border: "none",
+                    borderRadius: "20px",
+                    backgroundColor: "#f0f0f0",
+                    color: "#333",
+                    fontSize: "16px",
+                    fontWeight: "500",
+                  }}
+                  onChange={(e) => (window.location.href = e.target.value)}
+                >
+                  <option
+                    value="/booking"
+                    style={{
+                      padding: "10px",
+                      backgroundColor: "#ffffff",
+                      color: "#333",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Bookings
+                  </option>
+                  <option
+                    value="/tour"
+                    style={{
+                      padding: "10px",
+                      backgroundColor: "#ffffff",
+                      color: "#333",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Tour
+                  </option>
+                  <option
+                    value="/rooms"
+                    style={{
+                      padding: "10px",
+                      backgroundColor: "#ffffff",
+                      color: "#333",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Rooms
+                  </option>
+                  <option
+                    value="/flights"
+                    style={{
+                      padding: "10px",
+                      backgroundColor: "#ffffff",
+                      color: "#333",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Flights
+                  </option>
+                </select>
               </div>
               <div className="buttons">
                 {isAuthenticated ? (

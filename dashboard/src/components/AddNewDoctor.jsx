@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Context } from "../main";
@@ -13,26 +13,22 @@ const AddNewDoctor = () => {
   const [phone, setPhone] = useState("");
   const [nic, setNic] = useState("");
   const [dob, setDob] = useState("");
-  const [gender, setGender] = useState("");
-  const [password, setPassword] = useState("");
-  const [doctorDepartment, setDoctorDepartment] = useState("");
+  const [price, setPrice] = useState("");
+  const [content, setContent] = useState("");
+  const [rating, setRating] = useState("");
   const [docAvatar, setDocAvatar] = useState("");
   const [docAvatarPreview, setDocAvatarPreview] = useState("");
 
   const navigateTo = useNavigate();
 
-  const departmentsArray = [
-    "Pediatrics",
-    "Orthopedics",
-    "Cardiology",
-    "Neurology",
-    "Oncology",
-    "Radiology",
-    "Physical Therapy",
-    "Dermatology",
-    "ENT",
-  ];
 
+const ratingArr = [
+  "⭐⭐⭐⭐⭐",
+  "⭐⭐⭐⭐",
+  "⭐⭐⭐",
+  "⭐⭐",
+  "⭐",
+]
   const handleAvatar = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -51,11 +47,12 @@ const AddNewDoctor = () => {
       formData.append("lastName", lastName);
       formData.append("email", email);
       formData.append("phone", phone);
-      formData.append("password", password);
+      formData.append("price", price);
+      formData.append("content", content);
       formData.append("nic", nic);
       formData.append("dob", dob);
-      formData.append("gender", gender);
-      formData.append("doctorDepartment", doctorDepartment);
+      formData.append("rating", rating);
+    
       formData.append("docAvatar", docAvatar);
       await axios
         .post("http://localhost:4000/api/v1/user/doctor/addnew", formData, {
@@ -65,15 +62,17 @@ const AddNewDoctor = () => {
         .then((res) => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
-          navigateTo("/doctors"); // Redirect to '/doctors' page
+          navigateTo("/hotels");
+          console.log("Content >>>",content);
           setFirstName("");
           setLastName("");
           setEmail("");
           setPhone("");
           setNic("");
           setDob("");
-          setGender("");
-          setPassword("");
+          setRating("")
+          setContent("")
+          setPrice("")
         });
     } catch (error) {
       toast.error(error.response.data.message);
@@ -86,7 +85,7 @@ const AddNewDoctor = () => {
   return (
     <section className="page">
       <section className="container add-doctor-form">
-        <h1 className="form-title">REGISTER A NEW DOCTOR</h1>
+        <h1 className="form-title">REGISTER A NEW Hotel</h1>
         <form onSubmit={handleAddNewDoctor}>
           <div className="first-wrapper">
             <div className="avatar">
@@ -94,11 +93,11 @@ const AddNewDoctor = () => {
                 src={
                   docAvatarPreview ? `${docAvatarPreview}` : "/docHolder.jpg"
                 }
-                alt="Doctor Avatar"
-                className="avatar-img"
+                alt="Hotel Image"
+                className="Hotel-img"
               />
               <label htmlFor="avatar" className="avatar-label">
-                Upload Avatar
+                Upload Image
               </label>
               <input
                 type="file"
@@ -110,16 +109,30 @@ const AddNewDoctor = () => {
             <div className="inputs">
               <input
                 type="text"
-                placeholder="First Name"
+                placeholder="Hotel Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 className="input-field"
               />
               <input
                 type="text"
-                placeholder="Last Name"
+                placeholder="Hotel Description"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                className="input-field"
+              />
+              <input
+                type="text"
+                placeholder="Location"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
+                className="input-field"
+              />
+              <input
+                type="number"
+                placeholder="₹4599/day"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
                 className="input-field"
               />
               <input
@@ -138,52 +151,37 @@ const AddNewDoctor = () => {
               />
               <input
                 type="number"
-                placeholder="NIC"
+                placeholder="Aadhar Number"
                 value={nic}
                 onChange={(e) => setNic(e.target.value)}
                 className="input-field"
               />
               <input
                 type={"date"}
-                placeholder="Date of Birth"
+                placeholder="Since 1920"
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
                 className="input-field"
               />
+              
               <select
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-                className="input-field"
-              >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="input-field"
-              />
-              <select
-                value={doctorDepartment}
+                value={rating}
                 onChange={(e) => {
-                  setDoctorDepartment(e.target.value);
+                  setRating(e.target.value);
                 }}
                 className="input-field"
               >
-                <option value="">Select Department</option>
-                {departmentsArray.map((depart, index) => {
+                <option value="">Your Hotel Rating</option>
+                {ratingArr.map((rating, index) => {
                   return (
-                    <option value={depart} key={index}>
-                      {depart}
+                    <option value={rating} key={index}>
+                      {rating}
                     </option>
                   );
                 })}
               </select>
               <button type="submit" className="submit-btn">
-                Register New Doctor
+                Register New Hotel
               </button>
             </div>
           </div>
